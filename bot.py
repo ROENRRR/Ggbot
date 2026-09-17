@@ -6,11 +6,21 @@ TOKEN = os.environ["TELEGRAM_TOKEN"]
 CHAT_ID = int(os.environ["CHAT_ID"])
 
 POST = "لا حَولَ و لا قُوّة إِلا بِالله."
+INTERVAL = 3600  # كل ساعة بالثواني
 
 async def main():
     bot = Bot(token=TOKEN)
-    await bot.send_message(chat_id=CHAT_ID, text=POST)
-    print("✅ تم إرسال المنشور")
+    print("🤖 البوت بدأ العمل...")
+    
+    while True:
+        try:
+            await bot.send_message(chat_id=CHAT_ID, text=POST)
+            print("✅ تم إرسال المنشور")
+        except Exception as e:
+            print(f"❌ خطأ: {e}")
+        
+        # انتظر ساعة كاملة
+        await asyncio.sleep(INTERVAL)
 
 if __name__ == "__main__":
     asyncio.run(main())
