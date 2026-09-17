@@ -15,7 +15,7 @@ from telegram.ext import (
 # إعدادات البوت (من Railway Variables)
 # =========================
 
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+BOT_TOKEN = os.getenv("TELEGRAM_TOKEN")
 ADMIN_ID = int(os.getenv("ADMIN_ID", "0"))
 
 CHATS_FILE = "chats.json"
